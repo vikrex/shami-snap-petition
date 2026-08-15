@@ -1,0 +1,551 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government of Snap Affairs</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f1eb;
+  color:#252525;
+}
+
+.container{
+  width:min(900px,92%);
+  margin:30px auto;
+}
+
+.header{
+  background:#fff;
+  border:2px solid #222;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 5px 0 #222;
+}
+
+.seal{
+  width:80px;
+  height:80px;
+  margin:auto;
+  border:4px double #222;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  background:#fafafa;
+}
+
+.header h1{
+  margin:12px 0 4px;
+  font-size:clamp(24px,5vw,40px);
+}
+
+.header p{
+  margin:4px;
+  color:#666;
+  font-weight:bold;
+}
+
+.case{
+  margin-top:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.notice{
+  background:white;
+  margin-top:25px;
+  padding:30px;
+  border:1px solid #ccc;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.classified{
+  display:inline-block;
+  background:#222;
+  color:white;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+h2{
+  font-size:clamp(28px,6vw,48px);
+  line-height:1.05;
+  margin:18px 0;
+}
+
+p,li{
+  font-size:16px;
+  line-height:1.6;
+}
+
+.crisis{
+  margin:28px 0;
+  padding:20px;
+  background:#fff7f7;
+  border:2px solid #d95353;
+}
+
+.crisis-title{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.meter{
+  height:25px;
+  background:#ddd;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.meter-fill{
+  width:89%;
+  height:100%;
+  background:#d95353;
+  animation:pulse 1.2s infinite alternate;
+}
+
+@keyframes pulse{
+  from{opacity:.7}
+  to{opacity:1}
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:18px;
+}
+
+.stat{
+  padding:15px 8px;
+  background:#f7f7f7;
+  border:1px solid #ddd;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.stat span{
+  font-size:11px;
+  color:#777;
+}
+
+.showcause{
+  margin-top:30px;
+  padding:22px;
+  border-left:6px solid #222;
+  background:#fafafa;
+}
+
+.showcause h3{
+  margin-top:0;
+}
+
+.options{
+  display:grid;
+  gap:9px;
+  margin-top:15px;
+}
+
+.option{
+  padding:11px 14px;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+.petition{
+  margin-top:35px;
+  background:#f5f2ff;
+  border:2px dashed #7661b3;
+  padding:25px;
+}
+
+.declaration{
+  background:white;
+  padding:20px;
+  margin:18px 0;
+  border-radius:8px;
+  font-weight:bold;
+  font-style:italic;
+}
+
+button{
+  width:100%;
+  padding:17px;
+  border:none;
+  border-radius:10px;
+  background:#252525;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 0 #d95353;
+}
+
+.approved{
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  background:#ecfff0;
+  border:2px solid #4d9c5b;
+  text-align:center;
+  animation:pop .4s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.stamp{
+  display:inline-block;
+  border:4px solid #388548;
+  color:#388548;
+  padding:9px 16px;
+  font-weight:900;
+  transform:rotate(-5deg);
+  margin-bottom:15px;
+}
+
+.whatsapp{
+  margin-top:18px;
+  background:#25D366;
+  color:white;
+}
+
+.whatsapp:hover{
+  box-shadow:0 5px 0 #168c43;
+}
+
+.warning{
+  margin-top:30px;
+  background:#fff3cd;
+  border:1px solid #e2c56b;
+  padding:18px;
+  text-align:center;
+}
+
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  margin:20px 0 40px;
+}
+
+@media(max-width:650px){
+  .notice{padding:20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="header">
+
+    <div class="seal">📸</div>
+
+    <h1>Government of Snap Affairs</h1>
+
+    <p>Department of Cute & Unnecessary Complaints</p>
+
+    <div class="case">
+      <span>CASE NO: SHAMI-001</span>
+      <span>STATUS: 🚨 CRITICAL</span>
+    </div>
+
+  </header>
+
+
+  <main class="notice">
+
+    <span class="classified">OFFICIAL GOVERNMENT NOTICE</span>
+
+    <h2>
+      Petition for the<br>
+      Restoration of Snaps
+    </h2>
+
+    <p>
+      <strong>To: Shami</strong>
+    </p>
+
+    <p>
+      The Government of Snap Affairs has recently conducted
+      a thorough investigation into the current state of the
+      national snap supply.
+    </p>
+
+    <p>
+      The findings are deeply concerning.
+    </p>
+
+    <p>
+      Your snap production has declined to levels that can
+      only be described as <strong>“bro what happened?”</strong>
+    </p>
+
+
+    <section class="crisis">
+
+      <div class="crisis-title">
+        <span>📊 NATIONAL SNAP CRISIS</span>
+        <span>89% CRITICAL</span>
+      </div>
+
+      <div class="meter">
+        <div class="meter-fill"></div>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>📉 87%</strong>
+          <span>Snap decline</span>
+        </div>
+
+        <div class="stat">
+          <strong>🥲 100%</strong>
+          <span>Unnecessary suffering</span>
+        </div>
+
+        <div class="stat">
+          <strong>📱 HIGH</strong>
+          <span>Phone checking</span>
+        </div>
+
+        <div class="stat">
+          <strong>💀 4%</strong>
+          <span>Government patience</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="showcause">
+
+      <h3>📜 SHOW-CAUSE NOTICE</h3>
+
+      <p>
+        You are hereby required to explain why the number of
+        snaps being supplied to the undersigned has declined
+        so dramatically.
+      </p>
+
+      <p>
+        Select the most likely explanation:
+      </p>
+
+      <div class="options">
+        <div class="option">☐ “I forgot 😭”</div>
+        <div class="option">☐ “I don't know”</div>
+        <div class="option">☐ “Leave me alone 😂”</div>
+        <div class="option">☐ “Okay fine, I'll send more.”</div>
+      </div>
+
+    </section>
+
+
+    <section class="petition">
+
+      <h3>✋ OFFICIAL PETITION</h3>
+
+      <p>
+        The Department respectfully requests that
+        <strong>Shami</strong> restore the national snap supply
+        to an acceptable level immediately.
+      </p>
+
+      <div class="declaration">
+
+        “I hereby acknowledge that I have been sending fewer
+        snaps than reasonably expected and agree to make a
+        sincere effort to send more cute, random, chaotic and
+        completely unnecessary snaps in the future.”
+
+      </div>
+
+      <button onclick="approvePetition()">
+        ✋ I HEREBY AGREE TO SEND MORE SNAPS
+      </button>
+
+
+      <div class="approved" id="approved">
+
+        <div class="stamp">
+          PETITION APPROVED
+        </div>
+
+        <h2>🎉 DEMOCRACY HAS WON 🎉</h2>
+
+        <p>
+          Congratulations, Shami.
+        </p>
+
+        <p>
+          Your petition has been reviewed and approved by the
+          Ministry of Extremely Important Matters.
+        </p>
+
+        <p>
+          You may now proceed to your camera and fulfil
+          your governmental duties. 📸
+        </p>
+
+        <button class="whatsapp" onclick="sendSnapRequest()">
+          📸 SEND THE FIRST SNAP
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <div class="warning">
+
+      <strong>⚠️ IMPORTANT GOVERNMENT DISCLAIMER</strong>
+
+      <p>
+        This petition has absolutely no legal authority,
+        carries no monetary value and cannot be presented
+        in any actual government office.
+      </p>
+
+      <p>
+        However, ignoring it would be kinda mean.
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <div class="footer">
+    Government of Snap Affairs © 2026<br>
+    Department of “Bro Where Are My Snaps?”
+  </div>
+
+</div>
+
+
+<script>
+
+function approvePetition(){
+
+  document.getElementById("approved").style.display = "block";
+
+  document.getElementById("approved").scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+  confetti();
+
+}
+
+
+function sendSnapRequest(){
+
+  /*
+    CHANGE THIS NUMBER
+    Put your WhatsApp number here with country code.
+    Example for India:
+    919876543210
+  */
+
+  const phone = "919098310944";
+
+  const message =
+    "Dear Department of Snap Affairs, I have hereby agreed to comply with the government's demands. Here is my snap. Happy now? 😭📸";
+
+  const url =
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+
+}
+
+
+function confetti(){
+
+  const emojis = [
+    "📸","💗","✨","😭","😂","🫶","📷","🎉","💀"
+  ];
+
+  for(let i=0;i<45;i++){
+
+    const item = document.createElement("div");
+
+    item.innerText =
+      emojis[Math.floor(Math.random()*emojis.length)];
+
+    item.style.position = "fixed";
+    item.style.left = Math.random()*100 + "vw";
+    item.style.top = "-30px";
+    item.style.fontSize = "25px";
+    item.style.zIndex = "9999";
+    item.style.pointerEvents = "none";
+    item.style.transition =
+      "transform 2s linear, opacity 2s linear";
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>{
+
+      item.style.transform =
+        "translateY(" +
+        (window.innerHeight+100) +
+        "px) rotate(" +
+        Math.random()*720 +
+        "deg)";
+
+      item.style.opacity = "0";
+
+    },50);
+
+    setTimeout(()=>{
+      item.remove();
+    },2200);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
+```
